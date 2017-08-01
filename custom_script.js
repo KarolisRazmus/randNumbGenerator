@@ -6,6 +6,7 @@ var FastTyping = function () {
 	const STATE_GAME_OVER = "game_over";
 	var name;
 	var state;
+	var lastState;
 
 
 // ---------------------------         RegisterLogics        ---------------------------------
@@ -121,24 +122,24 @@ var FastTyping = function () {
 		if(lastState)
 			lastState.hide();
 
-		switch(value) {
-		    case STATE_REGISTER:
-		        lastState = register;
-		        break;
-		    case STATE_LEVEL_SELECTION:
-		        lastState = level_select;
-		        break;
-		    case STATE_GAME:
-		        lastState = game_start;
-		        break;
-		    case STATE_GAME_OVER:
-		        lastState = game_over;
-		        break;		        
-		    default:
-		        
-		}
+			switch(value) {
+			    case STATE_REGISTER:
+			        lastState = register;
+			        break;
+			    case STATE_LEVEL_SELECTION:
+			        lastState = level_select;
+			        break;
+			    case STATE_GAME:
+			        lastState = game_start;
+			        break;
+			    case STATE_GAME_OVER:
+					lastState = game_over;
+			        break;		        
+			    default:
+			        
+			}
 
-		lastState.show;
+		lastState.show();
 
 	}
 
