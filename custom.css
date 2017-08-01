@@ -17,7 +17,7 @@ body {
 
 }
 
-#register-body {
+#register-body, #level_select-body, #game_start-body, #game_over-body {
 
 	margin-top: 20%;
 

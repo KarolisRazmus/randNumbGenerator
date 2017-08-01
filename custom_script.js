@@ -7,6 +7,7 @@ var FastTyping = function () {
 	var name;
 	var state;
 	var lastState;
+	var level;
 
 
 // ---------------------------         RegisterLogics        ---------------------------------
@@ -15,18 +16,45 @@ var FastTyping = function () {
 	var RegisterLogics = function () {
 		
 		var view = $('#register-body');
+		var input = $('#register-input');
+		var button = $('#register-button');
+		button.prop('disabled', true);
 
 		this.show = function()
 		{
 			
 			view.removeClass( "hidden" );
 		
+			enable();
 		}
 
 		this.hide = function()
 		{
 
 			view.addClass( "hidden" );
+
+		}
+
+		function enable() 
+		{
+
+			input.keyup(function(){
+        		if(input.val().length >= 3)
+        			button.prop('disabled', false);
+        		else
+        			button.prop('disabled', true);
+
+    		});
+
+    		button.click(function () {
+    			name = input.val();
+
+				input.unbind();
+				button.unbind();
+				input.val('');
+
+    			changeState(STATE_LEVEL_SELECTION);
+    		});
 
 		}
 
@@ -41,18 +69,49 @@ var FastTyping = function () {
 	var LevelSelectLogics = function () {
 
 		var view = $('#level_select-body');
+		var radio = $('input:radio');
+		var button = $('#level-button');
+		button.prop('disabled', true);
 
 		this.show = function()
 		{
 			
 			view.removeClass( "hidden" );
-		
+
+			enable();
+	
 		}
 
 		this.hide = function()
 		{
 
 			view.addClass( "hidden" );
+
+		}
+
+		function enable() 
+		{
+
+			radio.change(function(){
+				if (radio.is(':checked')) {
+					var radioChecked = $('input[name=optradio]:checked');
+            		level = radioChecked.val();
+            		button.prop('disabled', false);
+		        } else {
+		        	button.prop('disabled', true);
+		  		}
+		    });
+
+
+    // 		button.click(function () {
+    // 			name = input.val();
+
+				// input.unbind();
+				// button.unbind();
+				// input.val('');
+
+    // 			changeState(STATE_LEVEL_SELECTION);
+    // 		});
 
 		}
 
