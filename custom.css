@@ -1,0 +1,36 @@
+body {
+
+	background-color: #FF8000;
+
+}
+
+#title h1 {
+
+	font-size: 7rem;
+	text-align: center;
+
+}
+
+.hidden {
+
+	display: none;
+
+}
+
+#register-body {
+
+	margin-top: 20%;
+
+}
+
+#register-input {
+
+	text-align: center;
+	
+}
+
+#register-button {
+
+    font-weight: bold;
+	
+}
