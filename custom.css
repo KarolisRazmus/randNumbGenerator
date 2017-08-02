@@ -19,11 +19,11 @@ body {
 
 #register-body, #level_select-body, #game_start-body, #game_over-body {
 
-	margin-top: 20%;
+	margin-top: 10%;
 
 }
 
-#register-input {
+#register-input, #game-over-input {
 
 	text-align: center;
 	
@@ -33,4 +33,11 @@ body {
 
     font-weight: bold;
 	
+}
+
+.gold {
+	color: yellow;
+	font-size: 30px;
+	font-weight: bold;
+	background-color: black;
 }
